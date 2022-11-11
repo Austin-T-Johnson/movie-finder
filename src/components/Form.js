@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 export const Form = (props) => {
 
- console.log("PROPS.FORM:", props.form.movieTitle)
+ console.log("PROPS:", props)
 
     const onInputChange = evt => {
         props.form.movieTitle = evt.target.value
@@ -15,7 +15,7 @@ export const Form = (props) => {
 
     const onSubmit = evt => {
         evt.preventDefault();
-        props.fetchMovie(props.form.fetchMovie)
+        props.fetchMovie(props.form.movieTitle)
      
        
     }
@@ -36,6 +36,9 @@ export const Form = (props) => {
 
             <button>Submit</button>
         </form>
+
+        {/* <div>{props.movie.title}</div> */}
+        <div>{props.movie}</div>
     </div>
   )
 }

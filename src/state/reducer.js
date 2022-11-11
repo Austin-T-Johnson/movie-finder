@@ -9,8 +9,6 @@ function form (state = intialFormState, action) {
   switch(action.type) {
     case types.INPUT_CHANGE: {
       const { movieTitle, value } = action.payload
-      console.log("HERE IN REDUCER:", "movie title:",movieTitle, "value:", value)
-    console.log("state in reducer:", state)
       return {...state, [movieTitle]: value}
     }
     case types.RESET_FORM: {
@@ -23,4 +21,20 @@ function form (state = intialFormState, action) {
   }
 };
 
-export default combineReducers({ form })
+// const initialMovieState = {
+//     title: '',
+//     director: ''
+// }
+const initialMovieState = ""
+function movie(state = initialMovieState, action) {
+    switch (action.type) {
+        case types.SHOW_MOVIE: {
+            // const { title, director } = action.payload
+            return state = action.payload
+        }
+        default:
+        return state
+    }
+}
+
+export default combineReducers({ form, movie })
